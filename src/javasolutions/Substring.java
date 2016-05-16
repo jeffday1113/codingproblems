@@ -4,7 +4,7 @@ public class Substring {
 
     public static void main(String[] args){
         Substring s = new Substring();
-        System.out.println(s.isSubstring("hello", "hello"));
+        System.out.println(s.isSubstring("hello", "i"));
     }
 
     public boolean isSubstring(String str, String substr){
@@ -20,6 +20,8 @@ public class Substring {
             else if (strArray[i] != substrArray[0])
                 continue;
             else{
+                if (substr.length() == 1)
+                    return true;
                 int temp = i + 1;
                 for (int j=1; j < substrArray.length; j++){
                     if (substrArray[j] == strArray[temp]){
