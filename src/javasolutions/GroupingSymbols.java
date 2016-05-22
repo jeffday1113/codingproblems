@@ -15,13 +15,16 @@ public class GroupingSymbols {
     }
     
     public boolean isGroupingValidNonRecursive(String str){
+        if (str.equals("") || str.length() % 2 == 0)
+            return false;
         Stack<Character> stack = new Stack<Character>();
         for (int i=0; i<str.length(); i++){
             if (str.charAt(i) == '[' || str.charAt(i) == '{' || str.charAt(i) == '('){
                 stack.push(str.charAt(i));
             }
             else if (str.charAt(i) == ']' || str.charAt(i) == '}' || str.charAt(i) == ')'){
-                if (stack.pop() != reverseGrouping(str.charAt(i))){
+                char reverseChar = reverseGrouping(str.charAt(i));
+                if (stack.pop() != reverseChar || reverseChar == ' '){
                     return false;
                 }
             }
@@ -33,16 +36,10 @@ public class GroupingSymbols {
     }
     
     private char reverseGrouping(char grouping){
-        if (grouping == '{')
-            return '}';
-        else if (grouping == '}')
+        if (grouping == '}')
             return '{';
-        else if (grouping == '(')
-            return ')';
         else if (grouping == ')')
             return '(';
-        else if (grouping == '[')
-            return ']';
         else if (grouping == ']')
             return '[';
         else
