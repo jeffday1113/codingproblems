@@ -17,22 +17,20 @@ public class DutchFlag {
         /* boundary for numbers less than mid */
         int i = 0;
         /* current number under consideration */
-        int j = 0;
+        int current = 0;
         /* n is boundary of numbers greater than mid */
         int n = nums.length - 1;
         int counter = 0;
-        while (j <= n) {
-            if (nums[j] < 0) {
-                nums = swap(nums, i, j);
+        while (current <= n) {
+            if (nums[current] < 0) {
+                nums = swap(nums, i, current);
                 i++;
-                j++;
-            }
-            else if (nums[j] > 0) {
-                nums = swap(nums, j, n);
+                current++;
+            } else if (nums[current] > 0) {
+                nums = swap(nums, current, n);
                 n--;
-            }
-            else {
-                j++;
+            } else {
+                current++;
             }
             counter++;
         }
