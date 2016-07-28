@@ -1,4 +1,4 @@
-package javasolutions;
+package javasolutions.dp;
 
 public class CoinSum {
     

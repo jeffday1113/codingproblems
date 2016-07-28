@@ -1,4 +1,4 @@
-package javasolutions;
+package javasolutions.sorting;
 
 public class QuickSort {
     
